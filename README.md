@@ -1,38 +1,11 @@
-# create-svelte
+# Sveltekit - SvelteFire (Firebase) - Tailwind CSS - DaisyUI
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+1. create a firebase project, fill in the client.ts and .env variables
 
-## Creating a project
+## The User Store
 
-If you're seeing this, you've probably already done this step. Congrats!
+The user store handles auth and propagates the auth instance user pbject throughout the frontend. There is a 'profile' and 'state' object on the store for extra user profile data (create a user profile in firebase with the UID - a listener in the store will update this when you make changes to the firebase) and state management. 
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Auth
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The state object already has states 0, 1, and 2. Create a component whose state is controlled by this, and build the login flow accordingly. Create whichever FirebaseAuth function you need and the listener in the userstore will update and set the state to 2.
